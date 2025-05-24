@@ -14,3 +14,8 @@ function checkMethodInput($input){
     }
     return false;
 }
+
+
+function filterInput($input){
+    return trim(htmlspecialchars(htmlentities($input)));
+}
