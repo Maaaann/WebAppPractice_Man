@@ -3,8 +3,7 @@
 include "../core/functions.php";
 
 if(checkRequestMethod("POST") && checkMethodInput("name")){
-    echo "eshta";
-
+    echo "done";
 }else{
-    echo "msh eshta";
+    echo "Server error!"
 }
