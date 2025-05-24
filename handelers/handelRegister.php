@@ -1,7 +1,10 @@
 <?php
 
+include "../core/functions.php";
 
-if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['name'])){
-    
+if(checkRequestMethod("POST") && checkMethodInput("name")){
+    echo "eshta";
+
+}else{
+    echo "msh eshta";
 }
-]
