@@ -1,4 +1,10 @@
 <?php include __DIR__."/inc/header.php";?>
+<?php
+if(isset($_SESSION["auth"])){
+    header("location:index.php");
+    die;
+}
+ ?>
 <?php include __DIR__."/inc/nav.php";?>
 
 <div class="container">
