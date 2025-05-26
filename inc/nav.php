@@ -10,22 +10,27 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
+    <?php  if(!isset($_SESSION["auth"])):?>
       <li class="nav-item">
         <a class="nav-link" href="login.php">Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
       </li>
+      <?php else: ?>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="profile.php">Profile</a>
       </li>
+      <?php endif; ?>
     
     </ul>
+    <?php  if(isset($_SESSION["auth"])):?>
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>
       </li>
     </ul>
+    <?php endif; ?>
   </div>
 </nav>
