@@ -21,3 +21,7 @@ function filterInput($input){
 }
 
 
+
+function redirect($path){
+    header("location:".$path); 
+}

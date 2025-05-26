@@ -28,7 +28,7 @@ if(checkRequestMethod("POST") && checkMethodInput("name"))
         $errors[]= "Enter a vaild email ";
     }
 
-    
+
     // Password Validation
 
     if(!required($password)){
@@ -41,10 +41,16 @@ if(checkRequestMethod("POST") && checkMethodInput("name"))
 
 
     if(empty($errors)){
-        echo "DONE!";
+        $userData = fopen("../data/Users.csv","a+");
+        $data = [$name,$email,sha1($password)];
+        fputcsv($userData,$data);
+        $_SESSION['auth'] = [$name,$email];
+        redirect("../index.php");
+        die;
+
     }else{
         $_SESSION['errors'] = $errors;
-        header("location:../register.php");
+        redirect("../register.php");
         die;
     }
 
