@@ -17,9 +17,29 @@ if(checkRequestMethod("POST") && checkMethodInput("name"))
     }elseif(!minimumVal($name,3)){
         $errors[]= "Minimum Value for the name input is 3";
     }elseif(!maximumVal($name,20)){
-        $errors[]= "Sorry Maximum Value mus be smaller than 20 chars";
+        $errors[]= "Sorry Maximum Value must be smaller than 20 chars";
     }
     
+    // Email Validation
+
+    if(!required($email)){
+        $errors[]= "Email is required";
+    }elseif(!emailVal($email)){
+        $errors[]= "Enter a vaild email ";
+    }
+
+    
+    // Password Validation
+
+    if(!required($password)){
+        $errors[]= "Password is required";
+    }elseif(!minimumVal($password,6)){
+        $errors[]= "Minimum  Password is 6";
+    }elseif(!maximumVal($password,20)){
+        $errors[]= "Sorry Maximum Value must be smaller than 20 chars";
+    }
+
+
     if(empty($errors)){
         echo "DONE!";
     }else{
